@@ -1,1 +1,320 @@
-{}
+[
+    {
+        "id": "131d6c5fa3dbf62c",
+        "type": "zudp in",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "iface": "",
+        "port": "20001",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "utf8",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "71df4b80c297e3bb"
+            ]
+        ]
+    },
+    {
+        "id": "372610c4d1cad283",
+        "type": "zudp out",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "addr": "127.0.0.1",
+        "iface": "",
+        "port": "20001",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "777b4a298581d7dd"
+            ]
+        ]
+    },
+    {
+        "id": "71df4b80c297e3bb",
+        "type": "debug",
+        "z": "f54b0f0849db327b",
+        "name": "======调试 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8aba876868d87c6f",
+        "type": "inject",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "msg_20002",
+        "payloadType": "str",
+        "x": 190,
+        "y": 340,
+        "wires": [
+            [
+                "d91f48145bb0f2aa"
+            ]
+        ]
+    },
+    {
+        "id": "3622b516f403371e",
+        "type": "zudp close",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "x": 400,
+        "y": 420,
+        "wires": [
+            [
+                "49be56ab0df85b23"
+            ]
+        ]
+    },
+    {
+        "id": "eaa7668aa3590763",
+        "type": "inject",
+        "z": "f54b0f0849db327b",
+        "name": "关闭多有UPD",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "3622b516f403371e"
+            ]
+        ]
+    },
+    {
+        "id": "c3a4829529939e3a",
+        "type": "inject",
+        "z": "f54b0f0849db327b",
+        "name": "关闭单个UPD",
+        "props": [
+            {
+                "p": "port",
+                "v": "20001",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 460,
+        "wires": [
+            [
+                "3622b516f403371e"
+            ]
+        ]
+    },
+    {
+        "id": "49be56ab0df85b23",
+        "type": "debug",
+        "z": "f54b0f0849db327b",
+        "name": "调试 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "fb13d8b17eea3ff1",
+        "type": "inject",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "msg_20001_1",
+        "payloadType": "str",
+        "x": 190,
+        "y": 200,
+        "wires": [
+            [
+                "131d6c5fa3dbf62c"
+            ]
+        ]
+    },
+    {
+        "id": "777b4a298581d7dd",
+        "type": "debug",
+        "z": "f54b0f0849db327b",
+        "name": "调试 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d91f48145bb0f2aa",
+        "type": "zudp out",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "addr": "127.0.0.1",
+        "iface": "",
+        "port": "20002",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 440,
+        "y": 340,
+        "wires": [
+            [
+                "777b4a298581d7dd"
+            ]
+        ]
+    },
+    {
+        "id": "97b2e3b6c2c96dd2",
+        "type": "zudp in",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "iface": "",
+        "port": "20002",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "utf8",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "599a0528fa4bf473"
+            ]
+        ]
+    },
+    {
+        "id": "599a0528fa4bf473",
+        "type": "debug",
+        "z": "f54b0f0849db327b",
+        "name": "/////////调试 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6d4a72e457788b7e",
+        "type": "zudp in",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "iface": "",
+        "port": "20001",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "utf8",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "1839812b0f96b1f7"
+            ]
+        ]
+    },
+    {
+        "id": "1839812b0f96b1f7",
+        "type": "debug",
+        "z": "f54b0f0849db327b",
+        "name": "调试 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 390,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4268eba64e471e97",
+        "type": "inject",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "msg_20001",
+        "payloadType": "str",
+        "x": 190,
+        "y": 280,
+        "wires": [
+            [
+                "372610c4d1cad283"
+            ]
+        ]
+    }
+]
