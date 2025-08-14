@@ -1,0 +1,67 @@
+{
+    "zudp": {
+        "in": "zudp输入",
+        "out": "zudp输出",
+        "label": {
+            "listen": "监听",
+            "onport": "端口",
+            "using": "使用",
+            "output": "输出",
+            "group": "组",
+            "interface": "本地IP",
+            "send": "发送",
+            "toport": " 到端口",
+            "address": "地址",
+            "decode-base64": "使用Base64解码信息",
+            "port": "端口"
+        },
+        "placeholder": {
+            "interface": "（可选）eth0的IP地址",
+            "interfaceprompt": "(可选) 要绑定的本地接口或地址",
+            "address": "目标IP地址"
+        },
+        "udpmsgs": "udp信息",
+        "mcmsgs": "组播信息",
+        "udpmsg": "udp信息",
+        "bcmsg": "广播信息",
+        "mcmsg": "组播信息",
+        "output": {
+            "buffer": "Buffer",
+            "string": "字符串",
+            "base64": "Base64编码字符串"
+        },
+        "bind": {
+            "random": "绑定到任意本地端口",
+            "local": "绑定到本地端口",
+            "target": "绑定到目标端口"
+        },
+        "tip": {
+            "in": "提示：请确保数据能够通过您的防火墙。",
+            "out": "提示：如果要使用<code>msg.ip</code>和<code>msg.port</code>设置，请将地址和端口留空。",
+            "port": "正在使用端口: "
+        },
+        "status": {
+            "listener-at": "udp 监听器正在监听 __host__:__port__",
+            "mc-group": "udp 组播到 __group__",
+            "listener-stopped": "udp 监听器已停止",
+            "output-stopped": "udp 输出已停止",
+            "mc-ready": "udp 组播已就绪: __outport__ -> __host__:__port__",
+            "bc-ready": "udp 广播已就绪: __outport__ -> __host__:__port__",
+            "ready": "udp 已就绪: __outport__ -> __host__:__port__",
+            "ready-nolocal": "udp 已就绪: __host__:__port__",
+            "re-use": "udp 重用套接字: __outport__ -> __host__:__port__"
+        },
+        "errors": {
+            "access-error": "UDP 访问错误, 你可能需要root权限才能接入1024以下的端口",
+            "error": "错误: __error__",
+            "bad-mcaddress": "无效的组播地址",
+            "interface": "必须是指定接口的IP地址",
+            "ip-notset": "udp: IP地址未设定",
+            "port-notset": "udp: 端口未设定",
+            "port-invalid": "udp: 无效端口号码",
+            "alreadyused": "udp: 端口已被占用",
+            "ifnotfound": "udp: 接口 __iface__ 未发现",
+            "invalid-group": "无效的多播组"
+        }
+    }
+}
