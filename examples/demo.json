@@ -86,7 +86,7 @@
         "z": "f54b0f0849db327b",
         "name": "",
         "x": 400,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "49be56ab0df85b23"
@@ -111,7 +111,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 190,
-        "y": 400,
+        "y": 460,
         "wires": [
             [
                 "3622b516f403371e"
@@ -136,7 +136,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 190,
-        "y": 460,
+        "y": 520,
         "wires": [
             [
                 "3622b516f403371e"
@@ -156,7 +156,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 420,
+        "y": 480,
         "wires": []
     },
     {
@@ -316,5 +316,123 @@
                 "372610c4d1cad283"
             ]
         ]
+    },
+    {
+        "id": "0e15fc16611d1476",
+        "type": "zudp in",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "iface": "",
+        "port": "20003",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "utf8",
+        "x": 650,
+        "y": 120,
+        "wires": [
+            [
+                "3df504e7f4c36c4f"
+            ]
+        ]
+    },
+    {
+        "id": "3df504e7f4c36c4f",
+        "type": "debug",
+        "z": "f54b0f0849db327b",
+        "name": "调试 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "de228a589b65a5f5",
+        "type": "inject",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "msg_20001",
+        "payloadType": "str",
+        "x": 190,
+        "y": 400,
+        "wires": [
+            [
+                "830fd4e4fa534b3a"
+            ]
+        ]
+    },
+    {
+        "id": "830fd4e4fa534b3a",
+        "type": "function",
+        "z": "f54b0f0849db327b",
+        "name": "发送前打开其他端口",
+        "func": "msg.portOther = [20003]\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 400,
+        "wires": [
+            [
+                "869122c9196b4637"
+            ]
+        ]
+    },
+    {
+        "id": "869122c9196b4637",
+        "type": "zudp out",
+        "z": "f54b0f0849db327b",
+        "name": "",
+        "addr": "127.0.0.1",
+        "iface": "",
+        "port": "20002",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 700,
+        "y": 400,
+        "wires": [
+            [
+                "961d0d53f91f6111"
+            ]
+        ]
+    },
+    {
+        "id": "961d0d53f91f6111",
+        "type": "debug",
+        "z": "f54b0f0849db327b",
+        "name": "调试 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 400,
+        "wires": []
     }
 ]
