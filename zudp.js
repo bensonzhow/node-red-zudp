@@ -62,6 +62,8 @@ module.exports = function (RED) {
 
         function createServer() {
             var server;
+            node.warn(`Creating server...${node.port}`);
+            node.warn(zudpInputPortsInUse);
             if (!zudpInputPortsInUse.hasOwnProperty(node.port)) {
                 server = dgram.createSocket(opts);  // default to udp4
                 server.bind(node.port, function () {
@@ -124,11 +126,24 @@ module.exports = function (RED) {
 
         createServer();
 
-        function reInitUDP(port) {
-            if (port == node.port) {
-                node.warn({ port: port, msg: "UDP连接已经关闭并重建" });
-                createServer()
+        function reInitUDP(port, portOther) {
+            try {
+                if (port == node.port) {
+                    // node.warn({ port: port, msg: "UDP连接已经关闭并重建" });
+                    createServer()
+                } else if (portOther && portOther.length > 0) {
+                    for (let pi = 0; pi < portOther.length; pi++) {
+                        const portI = portOther[pi];
+                        if (portI == node.port) {
+                            createServer();
+                            break;
+                        }
+                    }
+                }
+            } catch (error) {
+                node.error(error);
             }
+
         }
         _zemitter.on("reInitUDPInputPort", reInitUDP)
         // node.on("input", function (msg, nodeSend, nodeDone) {
@@ -258,7 +273,7 @@ module.exports = function (RED) {
 
             node.on("input", function (msg, nodeSend, nodeDone) {
                 if (!zudpInputPortsInUse[_p]) {
-                    _zemitter.emit('reInitUDPInputPort', _p);
+                    _zemitter.emit('reInitUDPInputPort', _p, msg.portOther || []);
                     getSocket(_p);
                 }
                 if (msg.hasOwnProperty("payload")) {
