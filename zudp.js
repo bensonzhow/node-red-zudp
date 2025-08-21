@@ -62,8 +62,8 @@ module.exports = function (RED) {
 
         function createServer() {
             var server;
-            node.warn(`Creating server...${node.port}`);
-            node.warn(zudpInputPortsInUse);
+            // node.warn(`Creating server...${node.port}`);
+            // node.warn(zudpInputPortsInUse);
             if (!zudpInputPortsInUse.hasOwnProperty(node.port)) {
                 server = dgram.createSocket(opts);  // default to udp4
                 server.bind(node.port, function () {
@@ -385,11 +385,11 @@ module.exports = function (RED) {
         }
 
         function reInitUDPonClose(port) {
-            node.warn({ port: port, msg: "UDP连接已经关闭" });
+            // node.warn({ port: port, msg: "UDP连接已经关闭" });
             node.status({ fill: "green", shape: "dot", text: "当前UDP连接数" + Object.keys(zudpInputPortsInUse).length });
         }
         function reInitUDPOnIn(port) {
-            node.warn({ port: port, msg: "UDP连接已经关闭" });
+            // node.warn({ port: port, msg: "UDP连接已经关闭" });
             node.status({ fill: "green", shape: "dot", text: "当前UDP连接数" + Object.keys(zudpInputPortsInUse).length });
         }
         _zemitter.on("reInitUDPInputPort", reInitUDPonClose)
